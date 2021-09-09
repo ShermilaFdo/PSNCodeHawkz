@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SimpleCodingChallenge.DataAccess.Entity
 {
@@ -8,7 +9,9 @@ namespace SimpleCodingChallenge.DataAccess.Entity
     {
         public Guid ID { get; set; }
         public string EmployeeID { get; set; }
+        [MaxLength(100)]
         public string FirstName { get; set; }
+        [MaxLength(100)]
         public string LastName { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
@@ -26,6 +29,16 @@ namespace SimpleCodingChallenge.DataAccess.Entity
                 return age;
             }
         }
+        public string FullName
+        {
+            get
+            {
+                var fullname = FirstName + " " + LastName;
+                return fullname;
+            }
+        }
+
+        public string Country { get; set; }
     }
 
     public sealed class EmployeeEntityDescriptor : IEntityTypeConfiguration<Employee>

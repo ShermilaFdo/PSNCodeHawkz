@@ -23,7 +23,8 @@ namespace SimpleCodingChallenge.API.Controllers
         {
             return new AboutDetailsModel
             {
-                Author = configuration.About.Author
+                Author = configuration.About.Author,
+                FavoriteWebsite = configuration.About.Website
             };
         }
     }
