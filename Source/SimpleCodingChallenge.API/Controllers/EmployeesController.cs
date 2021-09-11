@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SimpleCodingChallenge.Business.Actions.Employees;
 using SimpleCodingChallenge.Common.DTO;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -31,5 +32,28 @@ namespace SimpleCodingChallenge.API.Controllers
         {
             return null;
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<EmployeeDto>> GetByID(Guid ID)
+        {
+            var result = await mediator.Send(new GetByIDEmployeesCommand(ID));
+            //return result.Employeedata;
+            return result != null ? (ActionResult)Ok(result.Employeedata) : NotFound();
+
+            //if (result.Employeedata == null)
+            //{
+            //    Response.StatusCode = 404;
+            //    return View("Epmloyee not Found");
+            //}
+            //else
+            //{
+            //    return result.Employeedata;
+            //}
+
+
+        }
+
+
     }
 }
