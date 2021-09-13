@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimpleCodingChallenge.DataAccess.Entity;
+using System;
+using System.Threading.Tasks;
 
 namespace SimpleCodingChallenge.DataAccess.Database
 {
@@ -16,5 +18,6 @@ namespace SimpleCodingChallenge.DataAccess.Database
         }
 
         public DbSet<Employee> Employees { get; set; }
+
     }
 }

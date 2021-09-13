@@ -28,9 +28,11 @@ namespace SimpleCodingChallenge.API.Controllers
             return result.EmployeeList;
         }
 
-        public async Task<ActionResult<EmployeeDto>> Create()
+        [HttpPut]
+        [Route("")]
+        public async Task<ActionResult> Create([FromBody] CreateEmployeeCommand command)
         {
-            return null;
+            return Ok(await mediator.Send(command));
         }
 
         [HttpGet]

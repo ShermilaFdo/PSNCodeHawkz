@@ -46,6 +46,7 @@ namespace SimpleCodingChallenge.DataAccess.SampleData
             await dbContext.Employees.AddRangeAsync(employees);
 
             await dbContext.SaveChangesAsync();
+
         }
     }
 }
